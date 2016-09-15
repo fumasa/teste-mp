@@ -1,37 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:padding="5dip" >
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dip"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="263dp"
+        android:layout_height="67dp"
         android:textStyle="bold"
         android:typeface="sans"
         android:text="name sample"
-        android:layout_alignTop="@+id/price"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true" />
+        android:layout_row="0"
+        android:layout_column="0"
+        android:layout_columnSpan="12"
+        android:layout_weight="0.50" />
+
+    <ImageView
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:id="@+id/photo"
+        android:src="@mipmap/ic_launcher"
+        android:layout_below="@+id/name"
+        android:layout_row="0"
+        android:layout_column="12" />
 
     <TextView
         android:id="@+id/price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="31dp"
         android:textColor="#343434"
         android:textSize="12sp"
         android:text="R$ 1466,10"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/photo"
+        android:layout_row="1"
+        android:layout_column="0"
+        android:layout_columnSpan="12"
+        android:layout_weight="1.00" />
 
-    <TextView
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/photo"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-</RelativeLayout>
+        android:id="@+id/imageButton"
+        android:layout_row="1"
+        android:layout_column="12"
+        android:src="@android:drawable/btn_star_big_off" />
+
+</GridLayout>

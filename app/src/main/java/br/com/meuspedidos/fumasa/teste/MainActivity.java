@@ -26,10 +26,14 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    public ImageLoader imgLoader;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        imgLoader = new ImageLoader(this);
 
         FetchJsonTask fjt = new FetchJsonTask(this);
         Uri path = Uri.parse("https://gist.githubusercontent.com/ronanrodrigo/b95b75cfddc6b1cb601d7f806859e1dc/raw/dc973df65664f6997eeba30158d838c4b716204c/products.json");
@@ -56,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             progressBar.setIndeterminate(false);
 
             final ListView lv1 = (ListView) findViewById(R.id.lvProdutos);
-            lv1.setAdapter(new CustomListAdapter(this.context, produtos));
+            lv1.setAdapter(new CustomListAdapter(this.context, produtos, imgLoader));
             lv1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
                 @Override

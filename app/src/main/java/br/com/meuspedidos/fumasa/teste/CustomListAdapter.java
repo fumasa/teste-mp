@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -12,9 +13,11 @@ import java.util.ArrayList;
 public class CustomListAdapter extends BaseAdapter {
     private ArrayList<Produto> listData;
     private LayoutInflater layoutInflater;
+    private ImageLoader loader;
 
-    public CustomListAdapter(Context aContext, ArrayList<Produto> listData) {
+    public CustomListAdapter(Context aContext, ArrayList<Produto> listData, ImageLoader loader) {
         this.listData = listData;
+        this.loader = loader;
         layoutInflater = LayoutInflater.from(aContext);
     }
 
@@ -40,7 +43,7 @@ public class CustomListAdapter extends BaseAdapter {
             holder = new ViewHolder();
             holder.nameView = (TextView) convertView.findViewById(R.id.name);
             holder.priceView = (TextView) convertView.findViewById(R.id.price);
-            holder.photoView = (TextView) convertView.findViewById(R.id.photo);
+            holder.photoView = (ImageView) convertView.findViewById(R.id.photo);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
@@ -49,7 +52,9 @@ public class CustomListAdapter extends BaseAdapter {
         if (listData.get(position) != null) {
             holder.nameView.setText(listData.get(position).getName());
             holder.priceView.setText("R$ " + listData.get(position).getPrice());
-            holder.photoView.setText(listData.get(position).getPhoto());
+            //holder.photoView.setImageURI(Uri.parse(listData.get(position).getPhoto()));
+
+            this.loader.DisplayImage(listData.get(position).getPhoto(), holder.photoView);
         }
         return convertView;
     }
@@ -57,6 +62,6 @@ public class CustomListAdapter extends BaseAdapter {
     static class ViewHolder {
         TextView nameView;
         TextView priceView;
-        TextView photoView;
+        ImageView photoView;
     }
 }
