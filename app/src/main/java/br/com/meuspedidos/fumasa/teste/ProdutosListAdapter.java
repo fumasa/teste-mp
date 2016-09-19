@@ -10,12 +10,12 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class CustomListAdapter extends BaseAdapter {
+public class ProdutosListAdapter extends BaseAdapter {
     private ArrayList<Produto> listData;
     private LayoutInflater layoutInflater;
     private ImageLoader loader;
 
-    public CustomListAdapter(Context aContext, ArrayList<Produto> listData, ImageLoader loader) {
+    public ProdutosListAdapter(Context aContext, ArrayList<Produto> listData, ImageLoader loader) {
         this.listData = listData;
         this.loader = loader;
         layoutInflater = LayoutInflater.from(aContext);
@@ -39,7 +39,7 @@ public class CustomListAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
         if (convertView == null) {
-            convertView = layoutInflater.inflate(R.layout.list_row_layout, null);
+            convertView = layoutInflater.inflate(R.layout.product_row_layout, null);
             holder = new ViewHolder();
             holder.nameView = (TextView) convertView.findViewById(R.id.name);
             holder.priceView = (TextView) convertView.findViewById(R.id.price);

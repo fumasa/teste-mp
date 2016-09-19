@@ -15,9 +15,21 @@
         android:id="@+id/progressBar"
         android:layout_marginTop="-4dp" />
 
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnCategoria"
+        android:layout_gravity="right"
+        android:src="@android:drawable/ic_menu_sort_by_size"
+        android:background="#ffffff"
+        android:clickable="true" />
+
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/lvProdutos" />
+        android:id="@+id/lvProdutos"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:clickable="true" />
 
 </LinearLayout>
